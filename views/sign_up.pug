@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Sign up to our exclusive forums
+  p Be part of it, today.
+
+  <body>
+     <form action="" method="POST">
+       <p>
+         username: <input type="text" name="username" value="" placeholder='username'/>
+         password: <input type="password" name="password" value="" placeholder='password'/>
+         password: <input type="password" name="confirmPassword" value="" placeholder='confirm password'/>
+       </p>
+       <input type="submit" value="Submit"/>
+     </form>
+  </body>
+
+  h1 #{passwordConfirmationError}

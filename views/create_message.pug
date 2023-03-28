@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+  form.auth-form(action="/create_message" method="POST")
+    h2= title 
+    div.title-container
+      label(for="title") Title:
+      input#messageTitle(type="text" name="title" required="true" maxLength="50")
+    div.text-container
+      label(for="message") Message:
+      input#messageText(type="text" name="message" required="true")
+    button(type="submit") Submit Message
+
+  if (errors)
+    p #{errors}

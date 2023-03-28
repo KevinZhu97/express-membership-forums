@@ -3,3 +3,38 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  if (user && !user.membership)
+    h1 Welcome back #{user.username}
+    h1 Are you member? #{user.membership}
+    a(href='/log-out') Log out
+    |
+    a(href='/access') Become VIP
+
+    ul
+    each message in messages
+      li= message.message
+  else if (user && user.membership)
+    h1 Welcome back #{user.username}
+    h1 Are you member? #{user.membership}
+    a(href='/log-out') Log out
+    |
+    a(href='/access') Become VIP
+
+    ul
+    each message in messages
+      li= message.user.username
+      li= message.message
+      li= message.timestamp
+
+  else 
+    <h1>please log in</h1>
+    <form action="/" method="POST">
+      <label for="username">Username</label>
+      <input name="username" placeholder="username" type="text" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
+      <button type="submit">Log In</button>
+    </form>
+    //- if user.member is true, show names -//
+      asds
